@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // CHECK IF USER EXISTS
     if ($stmt->num_rows > 0) {
-    $stmt->bind_result($id, $db_username, $db_password);
-    $stmt->fetch();
+        $stmt->bind_result($id, $db_username, $db_password);
+        $stmt->fetch();
 
         // VERIFY PASSWORD
         if (password_verify($password, $db_password)) {
