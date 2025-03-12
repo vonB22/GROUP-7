@@ -166,7 +166,7 @@
                   <?php    
                       }
                     } else {
-                      echo "<tr><td colspan='8' class='text-center'>No Resuts Found</td></tr>";
+                      echo "<tr><td colspan='8' class='text-center'>No Results Found</td></tr>";
                     }
                    ?>
 
