@@ -146,7 +146,9 @@
                       </button>
 
                       <!-- Delete Button -->
-                      <button class="btn btn-danger btn-sm mx-1 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#DeleteInfo">
+                      <button class="btn btn-danger btn-sm mx-1 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#DeleteInfo"
+                          data-id="<?php echo $row['ID']; ?>"
+                          onclick="deleteRow(this)">
                         <i class="fa-solid fa-trash text-danger fs-6" title="Delete"></i>
                       </button>
 
@@ -427,6 +429,14 @@
           document.getElementById("duration").value = button.getAttribute("data-duration");
       }
     </script><!------ End Edit JS ---->
+
+    <!--------------------------------- Delete JavaScript ---------------------------------------->
+    <script>
+      function deleteRow(button) {
+        document.getElementById("delete_id").value = button.getAttribute("data-id");
+      }
+    </script><!---- End Delete JS ---->
+
 
     
 
