@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
   
-  <main>
+  <main class="mainbody">
     <div class="container">
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -122,13 +122,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="card-body">
 
+                  <?php if (isset($_SESSION["error"])): ?> 
+                    <div class="alert alert-danger" style="margin-top: 20px; padding-bottom: 0; padding-top: 0; margin-bottom: 0;"> 
+                      <?php 
+                        echo $_SESSION["error"]; 
+                        unset($_SESSION["error"]);
+                      ?>
+                    </div>
+                  <?php endif; ?>
+
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="register.php" method="POST" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
                         <label for="yourUsername" class="form-label">Username</label>
                         <div class="input-group has-validation">
