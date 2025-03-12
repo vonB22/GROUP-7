@@ -141,7 +141,14 @@
                       </button>
                       
                       <!-- View Button -->
-                      <button class="btn btn-sm mx-1 bg-transparent border-0" title="View details" data-bs-toggle="modal" data-bs-target="#viewInfo">
+                      <button class="btn btn-sm mx-1 bg-transparent border-0" title="View details" data-bs-toggle="modal" data-bs-target="#viewInfo"
+                          data-artistname="<?php echo $row['ArtistName']; ?>"
+                          data-songname="<?php echo $row['SongName']; ?>"
+                          data-genre="<?php echo $row['Genre']; ?>"
+                          data-releasedate="<?php echo $row['ReleaseDate']; ?>"
+                          data-streams="<?php echo $row['Streams']; ?>"
+                          data-duration="<?php echo $row['Duration']; ?>"
+                          onclick="viewRow(this)">
                         <i class="fa-solid fa-eye text-dark fs-6" title="View"></i>
                       </button>
 
@@ -429,6 +436,18 @@
           document.getElementById("duration").value = button.getAttribute("data-duration");
       }
     </script><!------ End Edit JS ---->
+
+    <!---------------------------------- View JavaScript ----------------------------------------->
+    <script>
+        function viewRow(button) {
+            document.getElementById("view_artistname").value = button.getAttribute("data-artistname");
+            document.getElementById("view_songname").value = button.getAttribute("data-songname");
+            document.getElementById("view_genre").value = button.getAttribute("data-genre");
+            document.getElementById("view_releasedate").value = button.getAttribute("data-releasedate");
+            document.getElementById("view_streams").value = button.getAttribute("data-streams");
+            document.getElementById("view_duration").value = button.getAttribute("data-duration");
+        }
+    </script><!------ End View JS ---->
 
     <!--------------------------------- Delete JavaScript ---------------------------------------->
     <script>
