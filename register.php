@@ -1,3 +1,66 @@
+<?php
+session_start();
+include 'database/database.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST["username"]);
+    $email = trim($_POST["email"]);
+    $password = $_POST["password"];
+    
+    // CHECK IF ANY FIELD IS EMPTY
+    if (empty($username) || empty($email) || empty($password)) {
+        $_SESSION["error"] = "All fields are required.";
+        header("Location: register.php");
+        exit();
+    }
+
+    // CHECK VALID EMAIL FORMAT
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION["error"] = "Invalid email format.";
+        header("Location: register.php");
+        exit();
+    }
+
+    // CHECK PASSWORD LENGTH
+    if (strlen($password) < 6) {
+        $_SESSION["error"] = "Password must be at least 6 characters.";
+        header("Location: register.php");
+        exit();
+    }
+
+    // CHECK IF USERNAME OR EMAIL ALREADY EXISTS
+    $check_sql = "SELECT id FROM users WHERE username = ? OR email = ?";
+    $check_stmt = $conn->prepare($check_sql);
+    $check_stmt->bind_param("ss", $username, $email);
+    $check_stmt->execute();
+    $check_stmt->store_result();
+
+    if ($check_stmt->num_rows > 0) {
+        $_SESSION["error"] = "Username or Email is already taken.";
+        header("Location: register.php");
+        exit();
+    }
+    $check_stmt->close();
+
+    // HASH PASSWORD AND INSERT NEW USER
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+    if ($stmt->execute()) {
+        $_SESSION["success"] = "Account created successfully. Please log in.";
+        header("Location: login.php"); // REDIRECT TO LOGIN ONLY IF REGISTRATION IS SUCCESSFUL
+        exit();
+    } else {
+        $_SESSION["error"] = "Registration failed. Please try again.";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

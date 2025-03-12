@@ -128,17 +128,34 @@
                     <td class="d-flex justify-content-center">
 
                       <!-- Edit Button -->
-                      <button class="btn btn-sm mx-1 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editInfo">
+                      <button class="btn btn-sm mx-1 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editInfo"
+                          data-id="<?php echo $row['ID']; ?>"
+                          data-artistname="<?php echo $row['ArtistName']; ?>"
+                          data-songname="<?php echo $row['SongName']; ?>"
+                          data-genre="<?php echo $row['Genre']; ?>"
+                          data-releasedate="<?php echo $row['ReleaseDate']; ?>"
+                          data-streams="<?php echo $row['Streams']; ?>"
+                          data-duration="<?php echo $row['Duration']; ?>"
+                          onclick="editRow(this)">
                         <i class="fa-solid fa-pen-to-square text-dark fs-6" title="Edit"></i>
                       </button>
                       
                       <!-- View Button -->
-                      <button class="btn btn-sm mx-1 bg-transparent border-0" title="View details" data-bs-toggle="modal" data-bs-target="#viewInfo">
+                      <button class="btn btn-sm mx-1 bg-transparent border-0" title="View details" data-bs-toggle="modal" data-bs-target="#viewInfo"
+                          data-artistname="<?php echo $row['ArtistName']; ?>"
+                          data-songname="<?php echo $row['SongName']; ?>"
+                          data-genre="<?php echo $row['Genre']; ?>"
+                          data-releasedate="<?php echo $row['ReleaseDate']; ?>"
+                          data-streams="<?php echo $row['Streams']; ?>"
+                          data-duration="<?php echo $row['Duration']; ?>"
+                          onclick="viewRow(this)">
                         <i class="fa-solid fa-eye text-dark fs-6" title="View"></i>
                       </button>
 
                       <!-- Delete Button -->
-                      <button class="btn btn-danger btn-sm mx-1 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#DeleteInfo">
+                      <button class="btn btn-danger btn-sm mx-1 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#DeleteInfo"
+                          data-id="<?php echo $row['ID']; ?>"
+                          onclick="deleteRow(this)">
                         <i class="fa-solid fa-trash text-danger fs-6" title="Delete"></i>
                       </button>
 
@@ -404,6 +421,41 @@
         </div>
       </div>
     </form><!---- End Add Modal ---->
+
+
+    <!---------------------------------- Edit JavaScript ----------------------------------------->
+    <script>
+      // Function to populate edit modal fields
+      function editRow(button) {
+          document.getElementById("edit_id").value = button.getAttribute("data-id");
+          document.getElementById("artistname").value = button.getAttribute("data-artistname");
+          document.getElementById("songname").value = button.getAttribute("data-songname");
+          document.getElementById("genre").value = button.getAttribute("data-genre");
+          document.getElementById("releasedate").value = button.getAttribute("data-releasedate");
+          document.getElementById("streams").value = button.getAttribute("data-streams");
+          document.getElementById("duration").value = button.getAttribute("data-duration");
+      }
+    </script><!------ End Edit JS ---->
+
+    <!---------------------------------- View JavaScript ----------------------------------------->
+    <script>
+        function viewRow(button) {
+            document.getElementById("view_artistname").value = button.getAttribute("data-artistname");
+            document.getElementById("view_songname").value = button.getAttribute("data-songname");
+            document.getElementById("view_genre").value = button.getAttribute("data-genre");
+            document.getElementById("view_releasedate").value = button.getAttribute("data-releasedate");
+            document.getElementById("view_streams").value = button.getAttribute("data-streams");
+            document.getElementById("view_duration").value = button.getAttribute("data-duration");
+        }
+    </script><!------ End View JS ---->
+
+    <!--------------------------------- Delete JavaScript ---------------------------------------->
+    <script>
+      function deleteRow(button) {
+        document.getElementById("delete_id").value = button.getAttribute("data-id");
+      }
+    </script><!---- End Delete JS ---->
+
 
     
 
