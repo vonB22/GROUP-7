@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body::before {
+    display: block;
+    content: '';
+}
+
+.bg-dark {
+    background-image: url(assets/img/monarch-legacy.jpg);
+    /* background-color:rgb(21, 0, 255); */
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.navbar-nav .nav-item .nav-link.active:hover {
+    background-color: solid rgb(0, 3, 185);
+    color: white;
+}
+
+.navbar .collapse ul li a:hover {
+    color:rgb(76, 56, 255) !important;
+}
+
+.last-star {
+    color: lightgray;
+}
+
+body {
+    background: #161616;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*---------global------*/
+.container {
+    max-width: 95%;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+i {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡ PLAY BUTTON ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+#palybtn {
+  background: #1335c9;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡ SEE MORE BUTTON ≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+button {
+  background: #1f2fb9;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 0px 30px;
+  cursor: pointer;
+}
+
+header.sticky .headerbg {
+  position: relative;
+}
+
+header.sticky {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #000;
+  transition: 0.5s;
+  height: 10vh;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+@media only screen and (max-width:768px) {
+  header nav ul {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 100;
+  }
+
+  header nav ul li {
+    display: block;
+    margin: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  header .navbar span {
+    color: white;
+    display: block;
+    cursor: pointer;
+  }
+
+  .home {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+  }
+}
+
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ HOME ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+.left, .right {
+  width: 50%;
+}
+
+.top {
+  margin-top: 10%
+}
+
+.mtop {
+  margin-top: 5%
+}
+
+h1 {
+  font-size: 80px;
+  letter-spacing: 2px;
+  line-height: 90px;
+  text-transform: uppercase;
+}
+
+.time {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 40px;
+}
+
+.time label {
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  text-align: center;
+  line-height: 40px;
+}
+
+.time i {
+  font-size: 5px;
+  line-height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.home_content p {
+  font-size: 20px;
+  line-height: 35px;
+}
+
+/* .btn {
+  padding: 20px 40px;
+  margin-right: 20px;
+} */
+
+.button {
+  margin-top: 30px;
+}
+
+.button p {
+  margin-top: 12px;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ HEADER ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+.heading h2 {
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.heading button {
+  padding: 15px 50px;
+}
+
+.popular {
+  color: white;
+}
+
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡ IMAGE HOVER ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+.popular .box {
+  position: relative;
+  background: #221F1F;
+  width: 100%;
+  cursor: pointer;
+}
+
+.popular .box .imgBox {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.popular .box .imgBox img {
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.popular .box:hover .imgBox img {
+  opacity: .6;
+  transform: scale(1.2);
+}
+
+/* all movies hover */
+.popular .card:hover .card-body img {
+    opacity: .6;
+    transform: scale(1.1);
+}
+
+.popular .card .card-body img {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+/* .popular .card .card-body {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}   */
+/* all movies hover */
+
+.popular .box .content {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+  left: 40%;
+  z-index: 2;
+}
+
+.popular .box .content i {
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popular .box:hover .content i {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popular #palybtn {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+}
+
+/*≡≡≡≡ ICONS ≡≡≡≡*/
+.popular .icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.popular .icon i {
+  font-size: 20px;
+  margin: 10px;
+}
+
+/*≡≡≡≡ TEXT COLOR ≡≡≡≡*/
+.popular .text {
+  padding: 20px;
+}
+
+.popular .time {
+  margin: 0;
+}
+
+
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ ACTION TEXT COLOR ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+.popular .time a {
+  color: #0940e5;
+}
+
+.owl-s .dots span {
+  font-size: 20px;
+  color: white;
+}
+
+.owl-nav span {
+  font-size: 50px;
+  color: white;
+}
+
+.owl-prev, .owl-next {
+  position: absolute;
+  top: 25%;
+}
+
+.owl-prev {
+  left: -20px;
+}
+
+.owl-next {
+  right: -20px;
+}
+
+ /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ POPULAR ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ NEW RELEASE ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+.new_realase {
+  color: white;
+}
+
+.heading h2 {
+  margin-bottom: 20px;
+}
+
+.time h3 {
+  font-size: 50px;
+}
+
+.new_realase .time img {
+  width: 60px !important;
+  height: 60px;
+  margin-top: -10px;
+  margin-right: 10px;
+}
+
+.new_realase .items {
+  border: 2px solid #252252;
+  padding: 45px;
+  height: 95vh;
+}
+
+.new_realase .img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  z-index: -1;
+}
+
+.new_realase .items {
+  width: 100%;
+  background: linear-gradient(to right, rgba(34, 31, 31, 1) 0%, rgba(34, 31, 31, 0.4) 100%)
+}
+
+.new_realase p {
+  font-size: 18px;
+  line-height: 35px;
+}
+
+
+@media only screen and (max-width:511px) {
+  header nav ul {
+    top: 70px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .time p {
+    margin-top: 10px;
+  }
+
+  .left p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .time button {
+    padding: 5px 10px;
+  }
+
+  .heading {
+    margin-top: 50px;
+  }
+
+  .owl-prev {
+    left: 20px;
+  }
+
+  .owl-next {
+    right: 20px;
+  }
+
+  .new_realase .items {
+    height: 80vh;
+  }
+
+  .new_realase .button button {
+    padding: 10px;
+  }
+
+  .new_realase .time label,
+  .new_realase .time img,
+  .new_realase .time p {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .new_realase .time button {
+    display: none;
+  }
+
+  .new_realase .time i {
+    display: none;
+  }
+
+}
