@@ -178,7 +178,7 @@
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item <?php if ($page <= 1) echo 'disabled'; ?> ">
-                    <a class="page-link text-dark" href="?page=<?php echo max(1, $page - 1); ?>&search=<?php echo urlencode($search); ?> ">
+                    <a class="page-link text-dark" title="previous page" href="?page=<?php echo max(1, $page - 1); ?>&search=<?php echo urlencode($search); ?> ">
                       <i class="fa-solid fa-arrow-left text-dark fs-6 pe-1"></i> Previous
                     </a>
                   </li>
@@ -193,7 +193,7 @@
                   <?php } ?>  
 
                   <li class="page-item <?php if ($page >= $total_pages) echo 'disabled'; ?> ">
-                    <a class="page-link text-dark" href="?page=<?php echo min($total_pages, $page + 1); ?>&search=<?php echo urlencode($search); ?>"> 
+                    <a class="page-link text-dark" title="next page" href="?page=<?php echo min($total_pages, $page + 1); ?>&search=<?php echo urlencode($search); ?> "> 
                       Next <i class="fa-solid fa-arrow-right text-dark fs-6 pe-1"></i>
                     </a>
                   </li>
